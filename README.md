@@ -1,3 +1,7 @@
+*This is written for [this issue][issue].*
+
+[issue]: https://github.com/gin-gonic/gin/issues/1316
+
 # gin-assets-sample
 
 This is a complete example to create a single binary with the
