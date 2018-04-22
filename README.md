@@ -2,6 +2,10 @@
 
 [issue]: https://github.com/gin-gonic/gin/issues/1316
 
+*Now this is in [`examples` directory][dir] in gin.*
+
+[dir]: https://github.com/gin-gonic/gin/tree/master/examples/assets-in-binary
+
 # gin-assets-sample
 
 This is a complete example to create a single binary with the
