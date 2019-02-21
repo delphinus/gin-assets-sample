@@ -17,14 +17,27 @@ func main() {
 	}
 	r.SetHTMLTemplate(t)
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "/html/index.tmpl", gin.H{
+		c.HTML(http.StatusOK, "/assets/index.tmpl", gin.H{
 			"Foo": "World",
 		})
 	})
 	r.GET("/bar", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "/html/bar.tmpl", gin.H{
+		c.HTML(http.StatusOK, "/assets/bar.tmpl", gin.H{
 			"Bar": "World",
 		})
+	})
+	r.GET("/assets/:filename", func(c *gin.Context) {
+		file, err := Assets.Open("/assets/" + c.Param("filename"))
+		if err != nil {
+			c.Status(http.StatusNotFound)
+			return
+		}
+		content, err := ioutil.ReadAll(file)
+		if err != nil {
+			c.Status(http.StatusInternalServerError)
+			return
+		}
+		c.Data(http.StatusOK, "application/javascript", content)
 	})
 	r.Run(":8080")
 }
