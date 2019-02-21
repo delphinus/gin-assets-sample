@@ -25,7 +25,7 @@ go get github.com/jessevdk/go-assets-builder
 ### Generate assets.go
 
 ```
-go-assets-builder html -o assets.go
+go-assets-builder assets -o assets.go
 ```
 
 ### Build the server
